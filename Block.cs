@@ -9,8 +9,6 @@ public class Block : MonoBehaviour
 {
     private const int DARK_TEXT_BELOW = 8;
 
-   // public EventHandler OnMerge;
-
     [SerializeField] private List<ColorSO> colorSOList;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private TextMeshPro numberText;
@@ -44,19 +42,6 @@ public class Block : MonoBehaviour
 
     public void SetNumber(int number)
     {
-        /* foreach (ColorSO colorSO in colorSOList)
-         {
-             if (colorSO.number == number)
-             {
-                 currentNumber = number;
-                 spriteRenderer.color = colorSO.color;
-                 numberText.text = number.ToString();
-                 if (number < DARK_TEXT_BELOW) numberText.color = darkTextColor;
-                 else numberText.color = lightTextColor;
-                 break;
-             }
-         }*/
-
         currentNumber = number;
         numberText.text = number.ToString();
 
@@ -89,7 +74,6 @@ public class Block : MonoBehaviour
         StartCoroutine(Moving(block.Pos, true));
         block.SetNumber(number * 2);
         block.Play_MergeAnimation();
-        //OnMerge?.Invoke(this, EventArgs.Empty);
     }
 
     public void Play_MergeAnimation() => animator.Play("Merge", 0, 0);

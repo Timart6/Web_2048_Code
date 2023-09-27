@@ -77,7 +77,6 @@ public class GameController : MonoBehaviour
         Camera.main.transform.position = new Vector3(center.x, center.y, -10);
         Camera.main.orthographicSize = minimumCameraSize + cameraSizeMult * scaleMult;
 
-        // Instantiate(scorePanel).Create(center, scaleMult);
         scorePanel.Place(center, height, scaleMult);
         sight.SetGameBorders(width, height);
     }
@@ -172,13 +171,6 @@ public class GameController : MonoBehaviour
         StartCoroutine(MovingProcess());
     }
 
-
-  /*  private void OnBlockMerge(object sender, EventArgs e)
-    {
-        Block mergedBlock = sender as Block;
-        spawnedBlocks.Remove(mergedBlock);
-        scorePanel.IncreaseScore(mergedBlock.number * 2);
-    }*/
 
 
     private Cell GetCellAtPosition(Vector2 position)
